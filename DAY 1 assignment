@@ -1,0 +1,40 @@
+1.) Find the time complexity for the following scenarios
+
+a.) for(i=1;i<=n;i++)
+ for(j=i;i<=n;j++)
+ printf("Hi");
+ EXPLANATION- 
+ The outer for loop will iterate for n times in total 
+ so time complexity is O(n)
+ At each iteration of the inner loop work done is a follows
+n
+n-1
+n-2
+....
+...
+1
+So total work done will be n+(n-1)+(n-2)+...+...+1, which turn out to be the sum of n natural numbers i.e n*(n+1)/2 so time complexity is O(n^2)
+Hence total time complexity of the code snippet is- O(n^2)
+
+
+b.) for(i=1;i<=n;i*=3)
+ for(j=1;i<=n;j++)
+ printf("Hello");
+ EXPLANATION-
+ Here the outer loop is running as-
+ i = 1
+     3
+     9
+     27
+     .
+     .
+     .
+     3^n
+     we can resolve it as- 1+3+9.......+3^n
+     1+3(1+3+3^2+3^3+.......+3^n)
+         this is a GP series whose sum is  1(3^n-1)/2
+    but for time complexity we don't need constants hence neglecting 1 3 and 2 from the expression we get time complexity for outer loop = O(3^n+1)= O(log n)
+     and time complexity for inner loop which runs for n times = O(n)
+     So Total Time complexity = O(n logn)
+     
+      
