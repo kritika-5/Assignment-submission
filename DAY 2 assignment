@@ -1,0 +1,71 @@
+Write the program for deleting an element from the beginning and from any position.
+
+
+#include <stdio.h>
+
+int main()
+{
+    int array[100], position, c, n;
+
+    printf("Enter number of elements in array\n");
+    scanf("%d", &n);
+
+    printf("Enter %d elements\n", n);
+
+    for ( c = 0 ; c < n ; c++ )
+    scanf("%d", &array[c]);
+
+    printf("Enter the location where you wish to delete element\n");
+    scanf("%d", &position);
+
+    if ( position >= n+1 )    
+    printf("Deletion not possible.\n");
+
+    else
+    {    
+        for ( c = position - 1 ; c < n - 1 ; c++ ) 
+        array[c] = array[c+1];        
+
+        printf("Resultant array is\n");
+
+        for( c = 0 ; c < n - 1 ; c++ )        
+        printf("%d\n", array[c]);        
+    }    
+    return 0;
+}
+
+
+
+
+
+
+Write the program for printing the array after rotating it k times towards left, where k
+would be taken as user input.
+
+
+
+# Python3 program to rotate an array by 
+# d elements 
+# Function to left rotate arr[] of size n by d*/ 
+def leftRotate(arr, d, n): 
+	for i in range(d): 
+		leftRotatebyOne(arr, n) 
+
+# Function to left Rotate arr[] of size n by 1*/ 
+def leftRotatebyOne(arr, n): 
+	temp = arr[0] 
+	for i in range(n-1): 
+		arr[i] = arr[i + 1] 
+	arr[n-1] = temp 
+
+
+# utility function to print an array */ 
+def printArray(arr, size): 
+	for i in range(size): 
+		print ("% d"% arr[i], end =" ") 
+
+
+# Driver program to test above functions */ 
+arr = [1, 2, 3, 4, 5, 6, 7] 
+leftRotate(arr, 2, 7) 
+printArray(arr, 7) 
