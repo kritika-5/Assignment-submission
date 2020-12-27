@@ -1,0 +1,48 @@
+Question 1
+Write a function “insert_any()” for inserting a node at any given position of the linked list. Assume
+position starts at 0.
+The following program illustrates the process of inserting a node at any specific position and i have inserted the new node after a given node-
+
+void insertAfter(struct Node* prev_node, int new_data)  
+{  
+    if (prev_node == NULL)  
+    {  
+    printf("the given previous node cannot be NULL");      
+    return;  
+    }  
+    struct Node* new_node =(struct Node*) malloc(sizeof(struct Node));  
+    new_node->data = new_data;  
+    new_node->next = prev_node->next;  
+    prev_node->next = new_node;  
+}
+
+Question 2
+Write a function “delete_beg()” for deleting a node from the beginning of the linked list.
+The following function will illustrate how to delete a node from the beginning of the linked list
+
+struct node *delete_beg(struct node *start)
+{
+struct node *ptr;
+ptr = start;
+start = start -> next;
+free(ptr);
+return start;
+}
+
+
+Question 3
+Write a function “delete_end()” for deleting a node from the end of the linked list.
+The following function will illustrate how to delete a node from the end of the linked list
+struct node *delete_end(struct node *start)
+{
+struct node *ptr, *preptr;
+ptr = start;
+while(ptr -> next != NULL)
+{
+ preptr = ptr;
+ ptr = ptr -> next;
+}
+preptr -> next = NULL;
+free(ptr);
+return start;
+}
